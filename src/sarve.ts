@@ -5,6 +5,11 @@ import { routes } from './routes'
 
 const app = Fastifay({ logger: true })
 
+app.setErrorHandler((error, request, reply) => {
+
+    reply.code(400).send({ Messagem: error.message })
+})
+
 
 const start = async () => {
 
